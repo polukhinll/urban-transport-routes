@@ -30,9 +30,6 @@ public class TransportService {
         trips.add(trip);
     }
 
-    /**
-     * Расписание рейсов по остановке.
-     */
     public List<Arrival> scheduleForStop(Stop stop) {
 
         List<Arrival> result = new ArrayList<>();
@@ -66,9 +63,6 @@ public class TransportService {
         return List.copyOf(result);
     }
 
-    /**
-     * Расчёт времени прибытия на k-ю остановку.
-     */
     public LocalTime calculateArrival(
             Trip trip,
             int stopIndex
@@ -76,10 +70,6 @@ public class TransportService {
         return trip.arrivalTimeAt(stopIndex);
     }
 
-    /**
-     * Интервалы движения между последовательными
-     * рейсами маршрута.
-     */
     public List<Duration> movementIntervals(Route route) {
 
         List<LocalTime> departures = trips.stream()
@@ -102,10 +92,6 @@ public class TransportService {
         return List.copyOf(intervals);
     }
 
-    /**
-     * Поиск маршрутов, связывающих две остановки
-     * без пересадки.
-     */
     public List<Route> directRoutes(
             Stop from,
             Stop to
@@ -123,10 +109,6 @@ public class TransportService {
                 .toList();
     }
 
-    /**
-     * Общее время в пути между двумя остановками
-     * по конкретному маршруту.
-     */
     public Duration totalTravelTime(
             Route route,
             Stop from,

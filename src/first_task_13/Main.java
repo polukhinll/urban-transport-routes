@@ -11,14 +11,9 @@ import java.time.LocalTime;
 import java.util.List;
 
 public class Main {
-
     public static void main(String[] args) {
 
         TransportService service = new TransportService();
-
-        // =========================
-        // ОСТАНОВКИ
-        // =========================
 
         Stop center = new Stop("S1", "Центр");
         Stop station = new Stop("S2", "Вокзал");
@@ -31,10 +26,6 @@ public class Main {
         Stop stadium = new Stop("S8", "Стадион");
         Stop school = new Stop("S9", "Школа");
         Stop mall = new Stop("S10", "Торговый центр");
-
-        // =========================
-        // МАРШРУТЫ
-        // =========================
 
         Route route10 = new Route(
                 "10",
@@ -97,10 +88,6 @@ public class Main {
         service.addRoute(route40);
         service.addRoute(route50);
 
-        // =========================
-        // РЕЙСЫ
-        // =========================
-
         service.addTrip(new Trip(route10, LocalTime.of(8, 0)));
         service.addTrip(new Trip(route10, LocalTime.of(8, 30)));
         service.addTrip(new Trip(route10, LocalTime.of(9, 0)));
@@ -121,10 +108,6 @@ public class Main {
         service.addTrip(new Trip(route50, LocalTime.of(8, 35)));
         service.addTrip(new Trip(route50, LocalTime.of(9, 5)));
 
-        // =========================
-        // 1. РАСПИСАНИЕ ПО ОСТАНОВКЕ
-        // =========================
-
         System.out.println("=== РАСПИСАНИЕ ПО ОСТАНОВКЕ ===");
 
         service.scheduleForStop(center)
@@ -138,10 +121,6 @@ public class Main {
                                         + arrival.arrivalTime()
                         )
                 );
-
-        // =========================
-        // 2. ПРИБЫТИЕ НА K-Ю ОСТАНОВКУ
-        // =========================
 
         System.out.println("\n=== РАСЧЁТ ПРИБЫТИЯ ===");
 
@@ -162,10 +141,6 @@ public class Main {
                         + arrival
         );
 
-        // =========================
-        // 3. ИНТЕРВАЛ ДВИЖЕНИЯ
-        // =========================
-
         System.out.println("\n=== ИНТЕРВАЛЫ МАРШРУТА 10 ===");
 
         service.movementIntervals(route10)
@@ -175,10 +150,6 @@ public class Main {
                                         + " минут"
                         )
                 );
-
-        // =========================
-        // 4. ПРЯМЫЕ МАРШРУТЫ
-        // =========================
 
         System.out.println(
                 "\n=== ПРЯМЫЕ МАРШРУТЫ ==="
@@ -194,10 +165,6 @@ public class Main {
                                         + route.getNumber()
                         )
                 );
-
-        // =========================
-        // 5. ОБЩЕЕ ВРЕМЯ В ПУТИ
-        // =========================
 
         System.out.println(
                 "\n=== ОБЩЕЕ ВРЕМЯ В ПУТИ ==="

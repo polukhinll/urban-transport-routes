@@ -77,10 +77,6 @@ public class Route {
         return stops.indexOf(stop);
     }
 
-    /**
-     * Возвращает время движения между двумя остановками
-     * данного маршрута.
-     */
     public Duration travelTimeBetween(Stop from, Stop to) {
         int fromIndex = stops.indexOf(from);
         int toIndex = stops.indexOf(to);
@@ -106,10 +102,6 @@ public class Route {
         return result;
     }
 
-    /**
-     * Возвращает время прибытия на указанную остановку,
-     * если отправление было в departure.
-     */
     public Duration timeFromStartToStop(int stopIndex) {
         if (stopIndex < 0 || stopIndex >= stops.size()) {
             throw new IndexOutOfBoundsException(
