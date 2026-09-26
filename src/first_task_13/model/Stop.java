@@ -16,3 +16,4 @@ public record Stop(String id, String name) {
             throw new IllegalArgumentException("Stop name cannot be blank");
         }
     }
+}
